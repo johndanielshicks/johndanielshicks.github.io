@@ -1,0 +1,11 @@
+---
+title: "sidebar"
+---
+
+
+![Image 1](image_palletes_vertical.JPG)
+![Image 2](images/image2.jpg)
+
+<!-- Alternatively, using HTML for more control -->
+<img src="images/image1.jpg" alt="Image 1" width="100%">
+<img src="images/image2.jpg" alt="Image 2" width="100%">

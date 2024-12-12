@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "John Hicks"
+  navbar:
+    right:
+      - href: index.qmd
+        text: Home
+      - research.qmd
+      - teaching.qmd
+      - cv.qmd
+      - fun.qmd
+sidebar:
+    title: "Test Website"
+    style: docked
+    collapse-level: 2
+    contents:
+      - section: ""
+        contents:
+          - "index.qmd"
+format:
+  html:
+    theme: Zephyr
+    embed-resources: true
+    toc: true
+    toc-expand: FALSE
+    toc-depth: 4
+    toc-location: right
+    toc-collapsed: false
+    grid:
+      sidebar-width: 300px
+      body-width: 1000px
+      margin-width: 500px
+      gutter-width: 1.5rem
+
+editor: visual
+
+
+

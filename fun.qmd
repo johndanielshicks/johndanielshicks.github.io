@@ -1,0 +1,548 @@
+---
+title: "Beyond Research"
+cv: 
+  pdf: "CV_Hicks_coaching_12_12_2024.pdf"
+---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
+
+```{css echo=FALSE}
+.embed-container {
+    position: relative;
+    padding-bottom: 129%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+```
+
+
+::: {.column-margin}
+![](images/image_building_vertical.JPG)
+::: 
+
+Aside from research, those that know me know that the sport of lacrosse (playing and coaching) is a massive part of my life. So, to show you a little bit of my life outside of data, here's that life in data viz-form:
+
+::: {layout="[[40,40,40], [100]]"}
+![*UW-Madison Club Lacrosse, 2024*](hicks_uwlax.png)
+
+![*CUFLA National Championship Final, 2023*](hicks_mcgilllax.png)
+
+![*U17 Canadian National Field Lacrosse Championship, 2024*](hicks_teamqclax.png)
+:::
+
+Here's a map of the geographic ties I've made through lacrosse*:
+
+```{r Packages,echo=FALSE,message=FALSE }
+
+pacman::p_load(sf,
+               terra,
+               dplyr,
+               spData,
+               tmap,
+               leaflet,
+               ggplot2,
+               urbnmapr,
+               tidyverse,
+               canadianmaps,
+               tibble,
+               gganimate,
+               showtext,
+               extrafont)
+```
+
+```{r Stadium Data,echo=FALSE,message=FALSE}
+
+stadium_data <- data.frame(Stadium = c("J. Walter Kennedy Stadium",
+                                       "University Bay Field",
+                                       "Oyen Field",
+                                       "Morristown RALLY BOXLA",
+                                       "Ken Strong Stadium",
+                                       "Nutmeg State Games",
+                                       "Center Field",
+                                       "Virtue Field",
+                                       "Husky Stadium",
+                                       "Molson Stadium",
+                                       "U17 Nationals",
+                                       "Coulter Field",
+                                       "Gee-Gees Field",
+                                       "Richardson Stadium",
+                                       "Trent University",
+                                       "Terrebonne Field",
+                                       "Longueuil (Coaching)"),
+           City = c("Stamford",
+                    "Madison",
+                    "Dubuque",
+                    "Morristown",
+                    "West Haven",
+                    "Berlin",
+                    "Woodbridge",
+                    "Burlington",
+                    "St. Cloud",
+                    "Montreal",
+                    "Calgary",
+                    "Sherbrooke",
+                    "Ottawa",
+                    "Kingston",
+                    "Peterborough",
+                    "Terrebonne",
+                    "Longueuil"),
+           State = c("Connecticut",
+                     "Wisconsin",
+                     "Iowa",
+                     "New Jersey",
+                     "Connecticut",
+                     "Connecticut",
+                     "Connecticut",
+                     "Vermont",
+                     "Minnesota",
+                     "Quebec",
+                     "Alberta",
+                     "Quebec",
+                     "Ontario",
+                     "Ontario",
+                     "Ontario",
+                     "Quebec",
+                     "Quebec"),
+           state_abbv = c("CT",
+                          "WI",
+                          "IA",
+                          "NJ",
+                          "CT",
+                          "CT",
+                          "CT",
+                          "VT",
+                          "MN",
+                          "QC",
+                          "AB",
+                          "QC",
+                          "ON",
+                          "ON",
+                          "ON",
+                          "QC",
+                          "QC"),
+           County = c("Fairfield",
+                      "Dane",
+                      "Dubuque",
+                      "Morris",
+                      "New Haven",
+                      "Hartford",
+                      "New Haven",
+                      "Chittenden",
+                      "Stearns",
+                      "Montreal",
+                      "Calgary",
+                      "Sherbrooke",
+                      "Ottawa",
+                      "Frontenac",
+                      "Peterborough",
+                      "Terrebonne",
+                      "Longueuil"),
+           county_name = c("Fairfield County",
+                           "Dane County",
+                           "Dubuque County",
+                           "Morris County",
+                           "New Haven County",
+                           "Hartford County",
+                           "New Haven County",
+                           "Chittenden County",
+                           "Stearns County",
+                           "Montreal",
+                           "Calgary",
+                           "Sherbrooke",
+                           "Ottawa",
+                           "Frontenac",
+                           "Peterborough",
+                           "Terrebonne",
+                           "Longueuil"),
+           Played = c(1))
+
+teammate_data <- 
+  tribble(~Last,~First,~City,~State,~state_abbv,~County,~county_name,~Played,
+        "Boehm","Joseph","Waterloo","Ontario","ON","Waterloo","Waterloo",1,
+        "Cree","Isaiah Storm","Akwesasne","New York","NY","Akwesasne","Akwesasne",1,
+        "Campbell","Colton","Boulder","Colorado","CO","Boulder","Boulder County",1,
+        "Tan","Sean","Kensington","Maryland","MD","Montgomery","Montgomery County",1,
+        "Plante","Connor","Burlington","Vermont","VT","Chittenden County","Chittenden County",1,
+        "Turner","Jack","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Pelliccione","David","Woodbridge","Ontario","ON","York","York",1,
+        "Bauer","Scotty","Newtown","Connecticut","CT","Fairfield","Fairfield County",1,
+        "McDonald","Kai","Coquitlam","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Murdoch","Maxime","Westmount","Quebec","QC","Montreal","Montreal",1,
+        "Gallo","Michael","Glen Rock","New Jersey","NJ","Bergen","Bergen County",1,
+        "Chase","Andrew","Summit","New Jersey","NJ","Union","Union County",1,
+        "Byrne","Brendan","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Baldin","Tanner","Brantford","Ontario","ON","Brant","Brant",1,
+        "Welton","Luke","Okotoks","Alberta","AB","Calgary","Calgary",1,
+        "Smith-Voudouris","Julian","Stouffville","Ontario","ON","Toronto","Toronto",1,
+        "Norris","Quentin","Southbury","Connecticut","CT","New Have","New Haven County",1,
+        "Macleod","Ian","Bradenton","Florida","FL","Manatee","Manatee County",1,
+        "McKay","Kieran","Richmond","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Schultz","Carter","Burlington","Ontario","ON","Hamilton","Hamilton",1,
+        "Uysal","Jon","Briarcliff Manor","New York","NY","Westchester","Westchester County",1,
+        "Kirby","Cougar","Kahnawake","Quebec","QC","Roussillon","Roussillon",1,
+        "Forgrave","Ethan","Edmonton","Alberta","AB","Edmonton","Edmonton",1,
+        "Reyonolds","Evan","Adelaide","Australia","AU","","",1,
+        "Rougeau","Paul","Wildwood","Missouri","MO","St. Louis","St. Louis County",1,
+        "McGinnis","Cameron","Scarborough","Ontario","ON","Toronto","Toronto",1,
+        "MacDonald","Liam","North Vancouver","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Pelliccione","Steven","Woodbridge","Ontario","ON","York","York",1,
+        "Van Hees","David","Oakville","Ontario","ON","Halton","Halton",1,
+        "Keresteci","Matt","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Turner","Patrick","Stouffville","Ontario","ON","Toronto","Toronto",1,
+        "Dowd","Campbell","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Middlebrook","Hayden","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Bolsterli","Oliver","London","Ontario","ON","Middlesex","Middlesex",1,
+        "Moellenberg","Roland","Boulder","Colorado","CO","Boulder","Boulder County",1,
+        "Obadia","Seth","Port Washington","New York","NY","Nassau","Nassau County",1,
+        "Mullen","Brednan","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Chand","Daniel","Coquitlam","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Johnston","Stuart","Kingston","Ontario","ON","Frontenac","Frontenac",1,
+        "Degife","Naoll","New Westminster","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Herr","Gardie","Princeton","New Jersey","NJ","Mercer","Mercer County",1,
+        "Kane","Kerry","Kahnawake","Quebec","QC","Roussillon","Roussillon",1,
+        "Perrello","Nathan","Madison","New Jersey","NJ","Morris","Morris County",1,
+        "Parkinson","Christopher","Falmouth","Massachusetts","MA","Barnstable","Barnstable County",1,
+        "Zawada","Hunter","Kimberley","British Columbia","BC","East Kootenay","East Kootenay",1,
+        "Gorman","Matthew","Oakville","Ontario","ON","Halton","Halton",1,
+        "Koran","Christopher","Longmeadow","Massachusetts","MA","Hampden","Hampden County",1,
+        "Howard","Owen","Cincinnati","Ohio","OH","Hamilton","Hamilton County",1,
+        "Fowler","Henry","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "James","Dylan","Little Britain","Ontario","ON","Kawartha Lakes","Kawartha Lakes",1,
+        "Badour","Ryan","Ottawa","Ontario","ON","Ottawa","Ottawa",1,
+        "Leach","Jaden","Surrey","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Costello","Lorenzo","Lexington","Massachusetts","MA","Middlesex","Middlesex County",1,
+        "Glick","Logan","Southampton","New York","NY","Suffolk","Suffolk County",1,
+        "Dawick","Luke","Oakville","Ontario","ON","Halton","Halton",1,
+        "Komosa","Henry","Potomac","Maryland","MD","Montgomery","Montgomery County",1,
+        "Cowgill","Alexander","San Carlos","California","CA","San Mateo","San Mateo County",1,
+        "Thauvette","Massimo","Montreal","Quebec","QC","Montreal","Montreal",1,
+        "MacDonald","Samuel","Guelph","Ontario","ON","Wellington","Wellington",1,
+        "Habre","Louis-Antoine","Montreal","Quebec","QC","Montreal","Montreal",1,
+        "Pomerleau","Olivier","Montreal","Quebec","QC","Montreal","Montreal",1,
+        "Norris","Preston","Westport","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Symon","Mark","New Canaan","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Miraglia","John","Memphis","Tennessee","TN","Shelby","Shelby County",1,
+        "Charlton","Cylis","Summerland","British Columbia","BC","Okanagan-Similkameen","Okanagan-Similkameen",1,
+        "Simons","Adrian","Cranbrook","British Columbia","BC","East Kootenay","East Kootenay",1,
+        "Buzby","Benjamin","Mountain Lakes","New Jersey","NJ","Morris","Morris County",1,
+        "Buzby","Jack","Boonton Township","New Jersey","NJ","Morris","Morris County",1,
+        "Jewell","Joshua","La Canada","California","CA","Los Angeles","Los Angeles County",1,
+        "Erbstein","Alex","Delray Beach","Florida","FL","Palm Beach","Palm Beach County",1,
+        "Birrell","Rowan","North Vancouver","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Klein","Ry","New York","New York","NY","New York","New York County",1,
+        "Leaver-Preyra","Calum","Etobicoke","Ontario","ON","Toronto","Toronto",1,
+        "Meeks","John","Leesberg","Virginia","VA","Loudoun","Loudoun County",1,
+        "Leach","Nathan","Surrey","British Columbia","BC","Greater Vancouver","Greater Vancouver",1,
+        "Murdoch","Angus","Mississauga","Ontario","ON","Peel","Peel",1,
+        "Glick","Kyle","Southhampton","New York","NY","Suffolk","Suffolk County",1,
+        "","","","","","","",1,
+        "Noack","Guiaumme","Braine","Belgium","BE","","",1,
+        "Cooledge","Andrew","Burlington","Vermont","VT","Chittenden","Chittenden County",1,
+        "Elie","Sebastien","Montreal","Quebec","QC","Montreal","Montreal",1,
+        "","","","","","","",1,
+        "","","","","","","",1,
+        "","","","","","","",1,
+        "","","","","","","",1,
+        "","","","","","","",1,
+        "Phelps","Stephen","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Brady","Shane","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "","","","","","","",1,
+        "Brazel","Cole","Edina","Minnesota","MN","Hennepin","Hennepin County",1,
+        "Lia","Matthew","Ridgewood","New Jersey","NJ","Bergen","Bergen County",1,
+        "Dretzka","Wyatt","Wales","Wisconsin","WI","Waukesha","Waukesha County",1,
+        "Townsend","Devon","Waukesha","Wisconsin","WI","Waukesha","Waukesha County",1,
+        "Rudoll","Cadin","Rosemount","Minnesota","MN","Dakota","Dakota County",1,
+        "Spratt","Dalton","Prior Lake","Minnesota","MN","Scott","Scott County",1,
+        "Andolina","Chris","Ithaca","New York","NY","Tompkins","Tompkins County",1,
+        "Parker","Colin","Wayzata","Minnesota","MN","Hennepin","Hennepin County",1,
+        "Kasbohm","Connor","Maple Grove","Minnesota","MN","Hennepin","Hennepin County",1,
+        "Prince","Evan","Madison","Wisconsin","WI","Dane","Dane County",1,
+        "Bauer","Jace","Middleton","Wisconsin","WI","Dane","Dane County",1,
+        "Curtis","Jasper","Stafford","Virginia","VA","Stafford","Stafford County",1,
+        "Bavery","Jordan","Waunakee","Wisconsin","WI","Dane","Dane County",1,
+        "Violich","Luke","Kentfield","California","CA","Marin","Marin County",1,
+        "Zylka","Mike","Waunakee","Wisconsin","WI","Dane","Dane County",1,
+        "Diesenhaus","Owen","Chevy Chase","Maryland","MD","Montgomery","Montgomery County",1,
+        "Foley","Patrick","Austin","Texas","TX","Travis","Travis County",1,
+        "Greene","Quincy","Cross River","New York","NY","Westchester","Westchester County",1,
+        "Keddie","Simon","Oconomowoc","Wisconsin","WI","Waukesha","Waukesha County",1,
+        "Braman","Wyatt","New Brighton","Minnesota","MN","Ramsey","Ramsey County",1,
+        "Shenck","Aidan","Annapolis","Maryland","MD","Anne Arundel","Anne Arundel County",1,
+        "Shea","Austin","Norwell","Massachusetts","MA","Plymouth","Plymouth County",1,
+        
+        )
+
+
+coached_with_data <- tribble(~Last,~First,~City,~State,~state_abbv,~County,~county_name,~Played,
+        "Phoenix-Lefevre","Jeremie","Terrebonne","Quebec","QC","Les Moulins","Les Moulins",1,
+        "Elie","Sebastien","Montreal","Quebec","QC","Montreal","Montreal",1,
+        "Miao","Kevin","Yorktown Heights","New York","NY","Westchester","Westchester County",1,
+        "Wooley","Justin","Nyack","New York","NY","Rockland","Rockland County",1,
+        "Cebo","Jack","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Couillard","Mathis","Blainville","Quebec","QC","Therese-De Blainville","Therese-De Blainville",1,
+        "Loof-Prévost","Jérémie","Repentigny","Quebec","QC","L'Assomption","L'Assomption",1,
+        "Sandoval","Owen","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Stone","Scott","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Judge","Bob","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Connolly","Aiden","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        )
+
+coached_by_data <- tribble(~Last,~First,~City,~State,~state_abbv,~County,~county_name,~Played,
+        "Soubry","Nic","Oakville","Ontario","ON","Halton","Halton",1,
+        "Murdoch","Tim","Princeton","New Jersey","NJ","Mercer","Mercer County",1,
+        "Jacobs","Stone","Kahnawake","Quebec","QC","Roussillon","Roussillon",1,
+        "Bjella","Anders","Milwaukee","Wisconsin","WI","Milwaukee","Milwaukee County",1,
+        "Miao","Kevin","Yorktown Heights","New York","NY","Westchester","Westchester County",1,
+        "Pion","Marc-Antoine","Montreal","Quebec","QC","Montreal","Montreal",1,
+        "Hudson","Simon","Seattle","Washington","WA","King","King County",1,
+        "Judge","Bob","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "McCartney","Tommy","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Sepe","Tony","Cortland","New York","NY","Cortland","Cortland County",1,
+        "Talboys","George","New Hyde Park","New York","NY","Nassau","Nassau County",1,
+        "Stone","Scott","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Sandoval","Owen","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Schellins","Jamie","","New York","NY","","",1,
+        "Edelman","Jack","","","","","",1,
+        "Beardsley","Rick","Mt. Kisco","New York","NY","Westchester","Westchester County",1,
+        "Cerone","Dick","","","","","",1,
+        )
+
+
+placements_data <- 
+  tribble(~Last,~First,~School,~City,~State,~state_abbv,~County,~county_name,~Played,
+        "Discua","Cristopoher","Manhattanville University","Purchase","New York","NY","Westchester","Westchester County",1,
+        "Boyd","Jared","University of Bridgeport","Bridgeport","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Saint Valiere","Jeremiah","Dean College","Franklin","Massachusetts","MA","Norfolk","Norfolk County",1,
+        "Leydon","James","Union College","Schenectady","New York","NY","Schenectady","Schenectady County",1,
+        "Ladenheim","Jack","Dalhousie University","Halifax","Nova Scotia","NS","Halifax","Halifax",1,
+        "Ibelings","Julia","University of Toronto","Toronto","Ontario","ON","Toronto","Toronto",1,
+        "Benkwitt","Ashton","Delaware Valley University","Doylestown","Pennsylvania","PA","Bucks","Bucks County",1,
+        "Thornton","Nasir","Norfolk State University","Norfolk","Virginia","VA","Norfolk","Norfolk County",1,
+        
+        )
+
+
+teammate_data_summmed <- teammate_data |> 
+  select(-Last,-First,-City,-State,-County) |> 
+  group_by(state_abbv,county_name) |> 
+  summarise(played_number=sum(Played)) |> mutate(setting = "Teammates")
+
+stadium_data_summed <- stadium_data |> 
+  select(-Stadium,-City,-State,-County) |> 
+  group_by(state_abbv,county_name) |> 
+  summarise(played_number=sum(Played)) |> mutate(setting = "Competition Locations (Player/Coach)")
+
+coached_by_data_summmed <- coached_by_data |> 
+  select(-Last,-First,-City,-State,-County) |> 
+  group_by(state_abbv,county_name) |> 
+  summarise(played_number=sum(Played)) |> mutate(setting = "Coached by")
+
+coached_with_data_summmed <- coached_with_data |> 
+  select(-Last,-First,-City,-State,-County) |> 
+  group_by(state_abbv,county_name) |> 
+  summarise(played_number=sum(Played)) |> mutate(setting = "Coached with")
+
+placements_data_summmed <- placements_data |> 
+  select(-Last,-First,-City,-State,-County) |> 
+  group_by(state_abbv,county_name) |> 
+  summarise(played_number=sum(Played)) |> mutate(setting = "Coaching Placements")
+
+pooled_data <- rbind(teammate_data_summmed,
+      stadium_data_summed,
+      coached_by_data_summmed,
+      coached_with_data_summmed,
+      placements_data_summmed
+      )
+
+```
+
+```{r, echo=FALSE,message=FALSE}
+
+devtools::install_github("UrbanInstitute/urbnmapr")
+
+canada_data = canadianmaps::CD |> 
+  rename(county_name = CDNAME,
+         state_abbv = PT) |> 
+  mutate(county_fips = NA,
+         state_fips = NA,
+         fips_class = NA,
+         state_name = NA) |> 
+  select(county_name,
+         state_abbv,
+         geometry,
+         county_fips,
+         state_fips,
+         fips_class,
+         state_name) |> 
+  mutate(county_name = if_else(str_detect(county_name,"Montr") & state_abbv == "QC", "Montreal", county_name),
+         county_name = if_else(str_detect(county_name,"Division No.  6"),"Calgary",county_name),
+         county_name = if_else(str_detect(county_name,"Sherbrook") & state_abbv == "QC", "Sherbrooke", county_name),
+         county_name = if_else(str_detect(county_name,"Ottaw") & state_abbv == "ON", "Ottawa", county_name),
+         county_name = if_else(str_detect(county_name,"Peterboroug") & state_abbv == "ON", "Peterborough", county_name),
+         county_name = if_else(str_detect(county_name,"Longueui") & state_abbv == "QC", "Longueuil", county_name),
+         county_name = if_else(str_detect(county_name,"Waterlo") & state_abbv == "ON", "Waterloo", county_name),
+         county_name = if_else(str_detect(county_name,"Toronto") & state_abbv == "ON", "Toronto", county_name),
+         county_name = if_else(str_detect(county_name,"York") & state_abbv == "ON", "York", county_name),
+         county_name = if_else(str_detect(county_name,"Brant") & state_abbv == "ON", "Brant", county_name),
+         county_name = if_else(str_detect(county_name,"Halton") & state_abbv == "ON", "Halton", county_name),
+         county_name = if_else(str_detect(county_name,"Hamilton") & state_abbv == "ON", "Hamilton", county_name),
+         county_name = if_else(str_detect(county_name,"Division No. 11") & state_abbv == "AB", "Edmonton", county_name),
+         county_name = if_else(str_detect(county_name,"Frontenac") & state_abbv == "ON", "Frontenac", county_name),
+         county_name = if_else(str_detect(county_name,"Middlesex") & state_abbv == "ON", "Middlesex", county_name),
+         county_name = if_else(str_detect(county_name,"Peel") & state_abbv == "ON", "Peel", county_name),
+         county_name = if_else(str_detect(county_name,"Kawartha Lakes") & state_abbv == "ON", "Kawartha Lakes", county_name),
+         county_name = if_else(str_detect(county_name,"Wellington") & state_abbv == "ON", "Wellington", county_name),
+         county_name = if_else(str_detect(county_name,"Greater Vancouver") & state_abbv == "BC", "Greater Vancouver", county_name),
+         county_name = if_else(str_detect(county_name,"East Kootenay") & state_abbv == "BC", "East Kootenay", county_name),
+         county_name = if_else(str_detect(county_name,"Okanagan-Similkameen") & state_abbv == "BC", "Okanagan-Similkameen", county_name),
+         county_name = if_else(str_detect(county_name,"Les Moulins") & state_abbv == "QC", "Les Moulins", county_name),
+         county_name = if_else(str_detect(county_name,"L'Assomption") & state_abbv == "QC", "L'Assomption", county_name),
+         county_name = if_else(str_detect(county_name,"De Blainville") & state_abbv == "QC", "Therese-De Blainville", county_name),
+         county_name = if_else(str_detect(county_name,"Halifax") & state_abbv == "NS", "Halifax", county_name)) 
+
+
+
+counties_sf <- get_urbn_map("counties", sf = TRUE) |> 
+  mutate(geometry = st_transform(geometry, crs = 4326)) |> 
+  rbind(canada_data)
+
+loadfonts()
+
+animation <- rbind(
+counties_sf %>%
+  left_join(pooled_data |> filter(setting == "Teammates")) |> 
+  mutate(setting = "Teammates",
+         played_number = if_else(is.na(played_number),0,played_number)),
+counties_sf %>%
+  left_join(pooled_data |> filter(setting == "Competition Locations (Player/Coach)")) |> 
+  mutate(setting = "Competition Locations (Player/Coach)",
+         played_number = if_else(is.na(played_number),0,played_number)),
+counties_sf %>%
+  left_join(pooled_data |> filter(setting == "Coached by")) |> 
+  mutate(setting = "Coached by",
+         played_number = if_else(is.na(played_number),0,played_number)),
+counties_sf %>%
+  left_join(pooled_data |> filter(setting == "Coached with")) |> 
+  mutate(setting = "Coached with",
+         played_number = if_else(is.na(played_number),0,played_number)),
+counties_sf %>%
+  left_join(pooled_data |> filter(setting == "Coaching Placements")) |> 
+  mutate(setting = "Coaching Placements",
+         played_number = if_else(is.na(played_number),0,played_number))) |> 
+  mutate(played_number = if_else(played_number > 1,2,played_number)) |> 
+  mutate(color=
+           case_when(setting == "Competition Locations (Player/Coach)" & played_number > 1 ~ "darkred",
+                         setting == "Competition Locations (Player/Coach)" & played_number == 1 ~ "red",
+                         setting == "Teammates" & played_number > 1  ~ "darkblue",
+                         setting == "Teammates" & played_number == 1  ~ "cyan3",
+                         setting == "Coached by" & played_number > 1  ~ "darkgreen",
+                         setting == "Coached by" & played_number == 1  ~ "green2",
+                         setting == "Coached with" & played_number > 1  ~ "orange",
+                         setting == "Coached with" & played_number == 1  ~ "yellow",
+                         setting == "Coaching Placements" & played_number > 0  ~ "purple",
+                         played_number == 0  ~ "white")) |> 
+  mutate(color=factor(color,levels = c("darkred",
+                                       "red",
+                                       "darkblue",
+                                       "cyan3",
+                                       "darkgreen",
+                                       "green2",
+                                       "orange",
+                                       "yellow",
+                                       "purple",
+                                       "white"
+                                       ))) |> 
+    filter(!state_abbv %in% c("AK","HI")) |> 
+ ggplot(aes(fill = color)) +
+  geom_sf(color = "azure4") +
+  scale_fill_manual(values=c("darkred",
+                                       "red",
+                                       "darkblue",
+                                       "cyan3",
+                                       "darkgreen",
+                                       "green2",
+                                       "orange",
+                                       "yellow",
+                                       "purple",
+                                       "white")) + 
+  theme_minimal() + 
+  theme(legend.position = "none") + 
+  scale_y_continuous(limits = c(26,53)) + 
+  scale_x_continuous(limits = c(-123,-63)) +
+  theme(axis.text = element_blank(),
+        plot.title = element_text(hjust = 0.5,face = "bold",size = 24)) +
+  labs(title = '{current_frame}',
+       caption = "Dark = 2+ ties \n Light = 1 Tie") +
+  transition_manual(frames = setting) 
+animate(animation, duration=14)
+
+# could add summerball teammates colleges as another layer
+
+```
+*<sub><sup>There are two key omissions in Australia and Belgium, due to space constraints.</sup></sub>
+
+# Coaching Placements
+
+Here is a list of some amazing student-athletes whom I've had the pleasure of coaching that went on to compete at the next level:
+
+**Coaching Placements**
+
+  - **Cristopher Discua** (Westhill HS '25) → Manhattanville University [*NCAA DIII*]
+  - **Jared Boyd** (Westhill HS '24) → University of Bridgeport [*NCAA DII*]
+  - **Jeremiah Saint Valiere** (Westhill HS '23) → Dean College [*NCAA DIII*]
+  - **James Leydon** (Westhill HS '23) → Union College [*NCAA DIII*]
+  - **Jack Ladenheim** (Dawson College '23) → Dalhousie University [*MUFLL*]
+  - **Julia Ibelings** (Dawson College '23) → University of Toronto [*OUA*]
+  - **Ashton Benkwitt** (Westhill HS '22) → Delaware Valley University [*NCAA DIII*]
+  - **Nasir Thornton** (Westhill HS '22) → Norfolk State University [*NCL*]
+
+*<sub><sup>The term "placements" is used very loosely here. The athletes are the ones who put in the work.</sup></sub>
+
+```{r, echo=FALSE, message=FALSE}
+
+#Teams played:
+
+#@ UW
+#- St. Thomas (St. Paul) (MCLA D2)
+#- St. John's (Minnesota)
+#- Michigan (Club)
+#- Purdue (Club)
+#- Western Michigan University (Club)
+#- Marquette (Club)
+#- Dubuque
+#- Beloit (NCAA D3)
+#- Iowa (Club)
+#- Illinois State (Club)
+#- College of Dupage (Illinois NJCAA)
+
+
+```
+
+
+# Coaching CV
+
+I'm on the (coaching) job market!
+
+Below is a brief CV of my coaching/athletic history. Since leaving my previous institution, I'm looking for a new team to coach part time, so if you're in the market for a coach in the Madison area, feel free to reach out to me at my personal email: **johndanielshicks[at]gmail[dot]com**
+
+
+```{=html}
+<div class="embed-container">
+  <iframe src="`r rmarkdown::metadata$cv$pdf`" style="border: 0.5px"></iframe>
+</div>
+```

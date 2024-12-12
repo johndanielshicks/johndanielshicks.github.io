@@ -1,0 +1,66 @@
+---
+title: "Excess"
+---
+
+
+
+
+
+evals_data_df <- tibble::tribble(~score,~course,~min,~max,~role,~order,~ob,
+                               2,"POLI 618",1,5,"TA",1,1,
+                               3,"POLI 618",1,5,"TA",1,2,
+                               5,"POLI 618",1,5,"TA",1,3,
+                               5,"POLI 618",1,5,"TA",1,4,
+                               5,"POLI 618",1,5,"TA",1,5,
+                               5,"POLI 618",1,5,"TA",1,6,
+                               5,"POLI 618",1,5,"TA",1,7,
+                               5,"POLI 618",1,5,"TA",1,8,
+                               5,"POLI 618",1,5,"TA",1,9,
+                               4,"POLI 666",1,5,"TA",2,10,
+                               5,"POLI 666",1,5,"TA",2,11,
+                               5,"POLI 666",1,5,"TA",2,12,
+                               5,"POLI 666",1,5,"TA",2,13,
+                               5,"POLI 666",1,5,"TA",2,14)
+
+
+
+
+df_list <- list()
+
+iterate <- function(k){
+
+
+# For loop to create and accumulate dataframes
+for (i in 1:nrow(evals_data_df)) {
+  # Subset the dataframe up to the ith row
+  df_subset <- evals_data_df[1:i, ] |> filter(course == k)
+  
+  # Add a column for the sample number
+  df_subset <- df_subset %>%
+    mutate(sample = i)
+  
+  # Assign to a new variable with dynamic names
+  df_list[[paste0("df", i)]] <- df_subset
+  
+}
+evals_data_cumulative <- data.table::rbindlist(df_list)
+  
+}
+
+course_list <- unique(evals_data_df$course)
+results <- lapply(X = course_list,FUN = iterate)
+results <- data.table::rbindlist(results)
+
+
+p_anim <- ggplot(data = results, aes(x = score,fill = course)) +
+  geom_histogram(color="black")
+
+anim <- p_anim + transition_manual(sample,cumulative = T) +
+  ease_aes("linear") +
+  enter_fade() +
+  exit_fade() + theme_custom + 
+  labs(x="Score",y="Count",fill="") + facet_wrap(~course)
+
+anim <- animate(anim, fps=50,height = 350, width =500, renderer = gifski_renderer(loop = FALSE))
+
+

@@ -1,0 +1,12 @@
+name: lax_map
+title: lax_map
+username: johndanielshicks
+account: johndanielshicks
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12535073
+bundleId: 9031941
+url: https://johndanielshicks.shinyapps.io/lax_map/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
