@@ -6,7 +6,7 @@ about:
 
 # Welcome to my site!
 ::: {.column-margin}
-![](Hicks_Headshot.jpg)
+![](Hicks_Headshot.jpg) 
 :::
 
 I am a Ph.D. student in the Department of Political Science at the University of Wisconsin--Madison working on international political economy. My research interests include inequality, global value chains, attitudes towards trade and domestic-side IR, which I study using both observational and experimental tools. Prior to coming to UW, I completed my Master's and BA in Political Science at McGill University.
