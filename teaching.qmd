@@ -11,7 +11,7 @@ title: "Teaching"
 ::: 
 
 
-Instruction is very important to me and I've had the privilege of working with some fantastic students. Below is my history of teaching to date:
+I've had the privilege of working with some fantastic students. Below is my history of teaching to date:
 
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 pacman::p_load(tidyverse,
@@ -40,17 +40,18 @@ theme_custom = theme_light() +
 
   - **PS 373 Introduction to Survey Research [U]** (UW-Madison, Fall 2024)
     - Instructor: Ethan vanderWilden
-    - Course Evaluation Mean: TBD
+    - Course Evaluation Mean: 4.65/5 (Office Hours), 4.62/5 (Performance)
+    - [View Full Course Report](ps373_fall2024.qmd)
   - **POLI 666 Causal Inference [G]** (McGill University, Winter 2024)
     - Instructor: Aaron Erlich
     - Course Evaluation Mean: 4.8/5 (SD: 0.4)
+    - [View Full Course Report](poli666_winter2024.qmd)
   - **POLI 618 Quantitative Analysis in Political Science [G]** (McGill University, Fall 2023) 
     - Instructor: Aaron Erlich
     - Course Evaluation Mean: 4.4/5 (SD: 1.1)
+    - [View Full Course Report](poli618_fall2023.qmd)
   
-# Course Evaluations
-
-## Student Feedback
+# Student Feedback
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 
 comments <- tribble(~comment,~xcoord,~ycoord,~course,
@@ -61,7 +62,38 @@ comments <- tribble(~comment,~xcoord,~ycoord,~course,
                      "John was great! He was incredibly patient and helpful,  and we really appreciated the labs he led.",0,1,"POLI 618",
                     "John is simply the best TA. He's available, smart  and actually knows what he's talking about. Those things are not  given in most TAs.",0,1,"POLI 618",
                     "John was great, given a challenging terrain. I don’t think he should  have been the primary source of coding knowledge for this class, but that was how it was structured, and given that undue responsibility, I thought John did very well. It would have been better to go over more of the homework related coding – for instance, if we could have gone over how to properly do each aspect of the homework after it was graded. But I understand that given the amount of coding material he had to cover,  doing such review wasn’t possible in the time. More feedback on homework’s overall  would have been helpful also.",0,1,"POLI 618",
-"John was an excellent TA!",0,1,"POLI 666") %>% mutate(comment = sapply(comment, function(x) paste(strwrap(x, 50), collapse = "\n"))) |> 
+"John was an excellent TA!",0,1,"POLI 666",
+"I appreciated how they were willing to use any possible method to assist, including outside of class material.",0,1,"PS 373",
+"Super helpful for individual questions, I never had a problem asked he answered my questions. Also, very
+responsive with email.",0,1,"PS 373",
+"John always does a great job with being available to the class, as well as explaining core concepts in an
+accessible manner. John ensures that the class environment is calm and productive, while still allowing for
+student input in discussion time. Overall, John has a great command of the material and was able to apply his
+knowledge to our learning experience without it being overwhelming to students who are still learning about
+coding.",0,1,"PS 373",
+"John was always willing to help! He met with me many times outside of the usual hours to help me out. Not
+many TAs would do that!",0,1,"PS 373",
+"I really liked his relatable approach and the way that he carried the classroom, it was unlike anything I have
+experienced in the most positive way possible. It made me feel really comfortable to ask questions whenever I
+was confused.",0,1,"PS 373",
+"John was always receptive to students and gave many opportunities for help to be requested and questions to
+be asked. I have no concerns about his ability to be a good instructor. This was a tough class for me. Some TAs
+make difficult courses even worse, but John did not.",0,1,"PS 373",
+"I don't really have any complaints. John is a sincere, respectful, and knowledgeable TA, I would recommend him
+as a TA without a second thought.",0,1,"PS 373",
+"Great at explaining and challenging students to use critical thinking",0,1,"PS 373",
+"He was knowledgable about the subject and open to helping when we asked. He made sure to be available
+outside of class too.",0,1,"PS 373",
+"He gave feedback that was useful.",0,1,"PS 373",
+"He's very knowledgable about the course material and always makes sure that we are on the right path.",0,1,"PS 373",
+"Created well structured sections through labs.",0,1,"PS 373",
+"He is very kind and very patient when explaining different concepts to us. He is very knowledgable on the topic
+and able to present multiple examples to explain the concept to make sure we have a full understanding.",0,1,"PS 373",
+"John made a very complicated subject of R manageable to myself and others who have never used R before.
+John, as well as the other TA's and Ethan were always willing to go out of their way if anyone was confused or
+lost in the class.",0,1,"PS 373",
+"The TA presented information well.",0,1,"PS 373") %>% 
+  mutate(comment = sapply(comment, function(x) paste(strwrap(x, 50), collapse = "\n"))) |> 
   mutate(comment = paste0("\"",comment,"\""," (",course,")"))
 
 anim2 <- ggplot(data = comments, aes(x = xcoord,label=comment,y=ycoord))  +
@@ -77,9 +109,8 @@ anim2 <- ggplot(data = comments, aes(x = xcoord,label=comment,y=ycoord))  +
   theme(plot.title = element_text(face = "bold",hjust = 0.5,size = 25))
 
 
-#anim <- animate(anim2, fps=2,height = 700, width =1000)
+#anim <- animate(anim2, fps=0.7,height = 700, width =1000)
 #anim_save("comments.gif", anim) 
 
 ```
 ![](comments.gif)
-

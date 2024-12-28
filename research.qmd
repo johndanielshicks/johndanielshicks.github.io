@@ -4,13 +4,14 @@ title: "Research"
 
 ## Ongoing
 
-::: {.column-margin}
+::: column-margin
 ![](images/image_smokestack2.JPG)
-::: 
+:::
+
 *Populism and Trust in Political Institutions: Evidence from Latin America* with Leo Baccini and Paula Rettl (status: IRB Approved)
 
 *Gaps in European Public Opinion and Party Positions: Support for Ukraine Aid as a Wedge between Parties and Voters* with Dietlind Stolle (status: Analysis)
 
 *Who Opposes Democratic Backsliding and Why: The Case of the Israeli Judicial Reforms* with Liron Lavi, Dietlind Stolle and Elisabeth Gidengil (status: Analysis)
 
-![](images/image_building_collapsed.JPG){fig-align="left"}
+![](images/image_powerlines.jpg){fig-align="left"}

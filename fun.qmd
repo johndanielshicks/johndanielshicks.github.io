@@ -30,11 +30,6 @@ cv:
 }
 ```
 
-
-::: {.column-margin}
-![](images/image_building_vertical.JPG)
-::: 
-
 Aside from research, those that know me know that the sport of lacrosse (playing and coaching) is a massive part of my life. So, to show you a little bit of my life outside of data, here's that life in data viz-form:
 
 ::: {layout="[[40,40,40], [100]]"}

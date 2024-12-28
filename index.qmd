@@ -9,20 +9,18 @@ about:
 ![](Hicks_Headshot.jpg) 
 :::
 
-I am a Ph.D. student in the Department of Political Science at the University of Wisconsin--Madison working on international political economy. My research interests include inequality, global value chains, attitudes towards trade and domestic-side IR, which I study using both observational and experimental tools. Prior to coming to UW, I completed my Master's and BA in Political Science at McGill University.
+I am a Ph.D. student in the Department of Political Science at the University of Wisconsin--Madison working on international political economy. My research interests include inequality, global value chains, attitudes towards trade and domestic-side IR, which I study using both observational and experimental tools. Prior to coming to UW, I completed my master's and B.A. in Political Science at McGill University.
 
-I'd love to chat about research. Feel free to reach out to me at **john[dot]hicks[at]wisc[dot]edu**.
+I'd love to chat about your research. Feel free to reach out to me at **john[dot]hicks[at]wisc[dot]edu**.
 
 
 \vspace{12pt}
-::: {.column-margin}
-![](images/image_watertower2.JPG)
-:::
 
-::: {.column-margin}
+
+::: {layout="[[50,50], [100]]"}
+![](images/image_watertower2.JPG)
+
 ![](images/image_satellites2.JPG)
 :::
 
-
-![](images/image_panes.JPG){fig-align="left"}
  

@@ -64,3 +64,11 @@ anim <- p_anim + transition_manual(sample,cumulative = T) +
 anim <- animate(anim, fps=50,height = 350, width =500, renderer = gifski_renderer(loop = FALSE))
 
 
+
+::: {.column-margin}
+![](images/image_watertower2.JPG)
+:::
+
+::: {.column-margin}
+![](images/image_satellites2.JPG)
+:::

@@ -42,6 +42,3 @@ engine: knitr
   <iframe src="`r rmarkdown::metadata$cv$pdf`" style="border: 0.5px"></iframe>
 </div>
 ```
-
-
-![](images/image_building_collapsed_sign.JPG){fig-align="left"}
