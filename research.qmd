@@ -1,5 +1,8 @@
 ---
 title: "Research"
+format:
+  html:
+    css: styles.css
 ---
 
 ## Ongoing

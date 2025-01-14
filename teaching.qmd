@@ -1,5 +1,8 @@
 ---
 title: "Teaching"
+format:
+  html:
+    css: styles.css
 ---
 
 ::: {.column-margin}

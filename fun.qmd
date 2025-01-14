@@ -535,7 +535,6 @@ I'm on the (coaching) job market!
 
 Below is a brief CV of my coaching/athletic history. Since leaving my previous institution, I'm looking for a new team to coach part time, so if you're in the market for a coach in the Madison area, feel free to reach out to me at my personal email: **johndanielshicks[at]gmail[dot]com**
 
-
 ```{=html}
 <div class="embed-container">
   <iframe src="`r rmarkdown::metadata$cv$pdf`" style="border: 0.5px"></iframe>

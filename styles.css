@@ -1,1 +1,6 @@
 /* css styles */
+@media screen and (max-width: 767px) {
+    .column-margin {
+      display: none !important;
+    }
+  }/* css styles */
