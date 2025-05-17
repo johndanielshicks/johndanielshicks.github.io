@@ -1,7 +1,7 @@
 ---
-title: "Beyond Research"
+title: "Coaching"
 cv: 
-  pdf: "CV_Hicks_coaching_12_12_2024.pdf"
+  pdf: "CV_Hicks_coaching_5_16_2025.pdf"
 ---
 
 ```{css, echo=FALSE}
@@ -30,7 +30,7 @@ cv:
 }
 ```
 
-Aside from research, those that know me know that the sport of lacrosse (playing and coaching) is a massive part of my life. So, to show you a little bit of my life outside of data, here's that life in data viz-form:
+Aside from research, those that know me well know that the sport of lacrosse (playing and coaching) is a massive part of my life. So, to show you a little bit of my life outside of data, here's that life in data viz-form:
 
 ::: {layout="[[40,40,40], [100]]"}
 ![*UW-Madison Club Lacrosse, 2024*](hicks_uwlax.png)
@@ -62,109 +62,42 @@ pacman::p_load(sf,
 
 ```{r Stadium Data,echo=FALSE,message=FALSE}
 
-stadium_data <- data.frame(Stadium = c("J. Walter Kennedy Stadium",
-                                       "University Bay Field",
-                                       "Oyen Field",
-                                       "Morristown RALLY BOXLA",
-                                       "Ken Strong Stadium",
-                                       "Nutmeg State Games",
-                                       "Center Field",
-                                       "Virtue Field",
-                                       "Husky Stadium",
-                                       "Molson Stadium",
-                                       "U17 Nationals",
-                                       "Coulter Field",
-                                       "Gee-Gees Field",
-                                       "Richardson Stadium",
-                                       "Trent University",
-                                       "Terrebonne Field",
-                                       "Longueuil (Coaching)"),
-           City = c("Stamford",
-                    "Madison",
-                    "Dubuque",
-                    "Morristown",
-                    "West Haven",
-                    "Berlin",
-                    "Woodbridge",
-                    "Burlington",
-                    "St. Cloud",
-                    "Montreal",
-                    "Calgary",
-                    "Sherbrooke",
-                    "Ottawa",
-                    "Kingston",
-                    "Peterborough",
-                    "Terrebonne",
-                    "Longueuil"),
-           State = c("Connecticut",
-                     "Wisconsin",
-                     "Iowa",
-                     "New Jersey",
-                     "Connecticut",
-                     "Connecticut",
-                     "Connecticut",
-                     "Vermont",
-                     "Minnesota",
-                     "Quebec",
-                     "Alberta",
-                     "Quebec",
-                     "Ontario",
-                     "Ontario",
-                     "Ontario",
-                     "Quebec",
-                     "Quebec"),
-           state_abbv = c("CT",
-                          "WI",
-                          "IA",
-                          "NJ",
-                          "CT",
-                          "CT",
-                          "CT",
-                          "VT",
-                          "MN",
-                          "QC",
-                          "AB",
-                          "QC",
-                          "ON",
-                          "ON",
-                          "ON",
-                          "QC",
-                          "QC"),
-           County = c("Fairfield",
-                      "Dane",
-                      "Dubuque",
-                      "Morris",
-                      "New Haven",
-                      "Hartford",
-                      "New Haven",
-                      "Chittenden",
-                      "Stearns",
-                      "Montreal",
-                      "Calgary",
-                      "Sherbrooke",
-                      "Ottawa",
-                      "Frontenac",
-                      "Peterborough",
-                      "Terrebonne",
-                      "Longueuil"),
-           county_name = c("Fairfield County",
-                           "Dane County",
-                           "Dubuque County",
-                           "Morris County",
-                           "New Haven County",
-                           "Hartford County",
-                           "New Haven County",
-                           "Chittenden County",
-                           "Stearns County",
-                           "Montreal",
-                           "Calgary",
-                           "Sherbrooke",
-                           "Ottawa",
-                           "Frontenac",
-                           "Peterborough",
-                           "Terrebonne",
-                           "Longueuil"),
-           Played = c(1))
+ 
+
+stadium_data <- tribble(
+  ~Stadium, ~City, ~State, ~state_abbv, ~County, ~county_name, ~Played,
+  "J. Walter Kennedy Stadium", "Stamford", "Connecticut", "CT", "Fairfield", "Fairfield County", 1,
+  "University Bay Field", "Madison", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Oyen Field", "Dubuque", "Iowa", "IA", "Dubuque", "Dubuque County", 1,
+  "Morristown RALLY BOXLA", "Morristown", "New Jersey", "NJ", "Morris", "Morris County", 1,
+  "Ken Strong Stadium", "West Haven", "Connecticut", "CT", "New Haven", "New Haven County", 1,
+  "Nutmeg State Games", "Berlin", "Connecticut", "CT", "Hartford", "Hartford County", 1,
+  "Center Field", "Woodbridge", "Connecticut", "CT", "New Haven", "New Haven County", 1,
+  "Virtue Field", "Burlington", "Vermont", "VT", "Chittenden", "Chittenden County", 1,
+  "Husky Stadium", "St. Cloud", "Minnesota", "MN", "Stearns", "Stearns County", 1,
+  "Molson Stadium", "Montreal", "Quebec", "QC", "Montreal", "Montreal", 1,
+  "U17 Nationals", "Calgary", "Alberta", "AB", "Calgary", "Calgary", 1,
+  "Coulter Field", "Sherbrooke", "Quebec", "QC", "Sherbrooke", "Sherbrooke", 1,
+  "Gee-Gees Field", "Ottawa", "Ontario", "ON", "Ottawa", "Ottawa", 1,
+  "Richardson Stadium", "Kingston", "Ontario", "ON", "Frontenac", "Frontenac", 1,
+  "Trent University", "Peterborough", "Ontario", "ON", "Peterborough", "Peterborough", 1,
+  "Terrebonne Field", "Terrebonne", "Quebec", "QC", "Terrebonne", "Terrebonne", 1,
+  "Longueuil (Coaching)", "Longueuil", "Quebec", "QC", "Longueuil", "Longueuil", 1,
+  "Edgewood High School", "Madison", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Monona Grove High School", "Monona Grove", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "La Follette High School", "Madison", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Memorial High School", "Madison", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Oregon High School", "Oregon", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Waunakee Community High School", "Waunakee", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Appleton East High School", "Appleton", "Wisconsin", "WI", "Outagamie", "Outagamie County", 1,
+  "Kimberly High School", "Kimberly", "Wisconsin", "WI", "Outagamie", "Outagamie County", 1,
+  "Deforest Area High School", "Deforest", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Janesville Craig High School", "Janesville", "Wisconsin", "WI", "Rock", "Rock County", 1,
+  "Sauk Prairie High School", "Prairie du Sac", "Wisconsin", "WI", "Sauk", "Sauk County", 1,
+  "Bank of Sun Prairie Stadium-Ashley Field", "Sun Prairie", "Wisconsin", "WI", "Dane", "Dane County", 1,
+  "Wayland Academy", "Beaver Dam", "Wisconsin", "WI", "Dodge", "Dodge County", 1)
+  
+  
 
 teammate_data <- 
   tribble(~Last,~First,~City,~State,~state_abbv,~County,~county_name,~Played,
@@ -252,7 +185,8 @@ teammate_data <-
         "","","","","","","",1,
         "","","","","","","",1,
         "","","","","","","",1,
-        "","","","","","","",1,
+        "Hansen","Jake","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Rubin","Zach","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
         "","","","","","","",1,
         "Phelps","Stephen","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
         "Brady","Shane","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
@@ -295,6 +229,11 @@ coached_with_data <- tribble(~Last,~First,~City,~State,~state_abbv,~County,~coun
         "Stone","Scott","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
         "Judge","Bob","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
         "Connolly","Aiden","Stamford","Connecticut","CT","Fairfield","Fairfield County",1,
+        "Reiter","Mike","Denver","Colorado","CO","Denver","Denver County",1,
+        "Schmidt","Braden","Madison","Wisconsin","WI","Dane","Dane County",1,
+        "Harvat","Ben","Hartland","Wisconsin","WI","Waukesha","Waukesha County",1
+        
+        
         )
 
 coached_by_data <- tribble(~Last,~First,~City,~State,~state_abbv,~County,~county_name,~Played,
@@ -320,6 +259,9 @@ coached_by_data <- tribble(~Last,~First,~City,~State,~state_abbv,~County,~county
 
 placements_data <- 
   tribble(~Last,~First,~School,~City,~State,~state_abbv,~County,~county_name,~Played,
+        "Morison Phillips","Ben","Canisius University","Buffalo","New York","NY","Erie","Erie County",1,
+        "Lockton","Cameron","Illinois Wesleyan University","Bloomington","Illinois","IL","McLean","McLean County",1,
+        "Discua","Cristopoher","Manhattanville University","Purchase","New York","NY","Westchester","Westchester County",1,
         "Discua","Cristopoher","Manhattanville University","Purchase","New York","NY","Westchester","Westchester County",1,
         "Boyd","Jared","University of Bridgeport","Bridgeport","Connecticut","CT","Fairfield","Fairfield County",1,
         "Saint Valiere","Jeremiah","Dean College","Franklin","Massachusetts","MA","Norfolk","Norfolk County",1,
@@ -328,7 +270,6 @@ placements_data <-
         "Ibelings","Julia","University of Toronto","Toronto","Ontario","ON","Toronto","Toronto",1,
         "Benkwitt","Ashton","Delaware Valley University","Doylestown","Pennsylvania","PA","Bucks","Bucks County",1,
         "Thornton","Nasir","Norfolk State University","Norfolk","Virginia","VA","Norfolk","Norfolk County",1,
-        
         )
 
 
@@ -449,7 +390,9 @@ counties_sf %>%
                          setting == "Coached by" & played_number == 1  ~ "green2",
                          setting == "Coached with" & played_number > 1  ~ "orange",
                          setting == "Coached with" & played_number == 1  ~ "yellow",
-                         setting == "Coaching Placements" & played_number > 0  ~ "purple",
+                         setting == "Coaching Placements" & played_number == 1  ~ "violetred",
+                     setting == "Coaching Placements" & played_number > 1  ~ "purple4",
+                     
                          played_number == 0  ~ "white")) |> 
   mutate(color=factor(color,levels = c("darkred",
                                        "red",
@@ -459,7 +402,8 @@ counties_sf %>%
                                        "green2",
                                        "orange",
                                        "yellow",
-                                       "purple",
+                                       "purple4",
+                                       "violetred",
                                        "white"
                                        ))) |> 
     filter(!state_abbv %in% c("AK","HI")) |> 
@@ -474,6 +418,7 @@ counties_sf %>%
                                        "orange",
                                        "yellow",
                                        "purple",
+                                       "violetred",
                                        "white")) + 
   theme_minimal() + 
   theme(legend.position = "none") + 
@@ -484,7 +429,7 @@ counties_sf %>%
   labs(title = '{current_frame}',
        caption = "Dark = 2+ ties \n Light = 1 Tie") +
   transition_manual(frames = setting) 
-animate(animation, duration=14)
+animate(animation, duration=30)
 
 # could add summerball teammates colleges as another layer
 
@@ -497,6 +442,8 @@ Here is a list of some amazing student-athletes whom I've had the pleasure of co
 
 **Coaching Placements**
 
+  - **Ben Morrison Phillips** (Madison Knights '25) → Canisius University [*NCAA DI*]
+  - **Cameron Lockton** (Madison Knights '25) → Illinois Wesleyan University [*NCAA DIII*]
   - **Cristopher Discua** (Westhill HS '25) → Manhattanville University [*NCAA DIII*]
   - **Jared Boyd** (Westhill HS '24) → University of Bridgeport [*NCAA DII*]
   - **Jeremiah Saint Valiere** (Westhill HS '23) → Dean College [*NCAA DIII*]
@@ -531,9 +478,11 @@ Here is a list of some amazing student-athletes whom I've had the pleasure of co
 
 # Coaching CV
 
-I'm on the (coaching) job market!
+I'm off the (coaching) job market!
 
-Below is a brief CV of my coaching/athletic history. Since leaving my previous institution, I'm looking for a new team to coach part time, so if you're in the market for a coach in the Madison area, feel free to reach out to me at my personal email: **johndanielshicks[at]gmail[dot]com**
+I'm currently serving as the Defensive Coordinator and Assistant Coach for the Madison Knights lacrosse team.
+
+Below is a brief CV of my prior coaching/athletic history. To discuss potential coaching and training opportunities or to just talk ball, feel free to reach out to me at my personal email: **johndanielshicks[at]gmail[dot]com**
 
 ```{=html}
 <div class="embed-container">

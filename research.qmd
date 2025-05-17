@@ -11,10 +11,21 @@ format:
 ![](images/image_smokestack2.JPG)
 :::
 
-*Populism and Trust in Political Institutions: Evidence from Latin America* with Leo Baccini and Paula Rettl (status: IRB Approved)
 
-*Gaps in European Public Opinion and Party Positions: Support for Ukraine Aid as a Wedge between Parties and Voters* with Dietlind Stolle (status: Analysis)
 
-*Who Opposes Democratic Backsliding and Why: The Case of the Israeli Judicial Reforms* with Liron Lavi, Dietlind Stolle and Elisabeth Gidengil (status: Analysis)
+*IGO Informality as an Ingress for Corporate Lobbying* [status: Pre-analysis]
+
+*The Distributional Impact of Tariff Regressivity on Foreign Economies.* [Status: Pre-analysis]
+
+*Labor Schedules and Election Turnout: Evidence from Night Shift Labor.* [Status: Analysis]
+
+*Populism and Trust in Political Institutions: Evidence from Latin America* with Leo Baccini (McGill) and Paula Rettl (Harvard) [Status: Analysis]
+
+*Gaps in European Public Opinion and Party Positions: Support for Ukraine Aid as a Wedge between Parties and Voters* with Dietlind Stolle (McGill) [status: Analysis]
+
+*Who Opposes Democratic Backsliding and Why: The Case of the Israeli Judicial Reforms* with Liron Lavi (Bar-Ilan University), Dietlind Stolle (McGill) and Elisabeth Gidengil (McGill) [Status: Analysis]
+
+*War Fatigue in Europe? Explaining selective decline in support for Ukraine Aid*, with Isaac Noveck (McGill) and Dietlind Stolle (McGill). [Status: Analysis]
+
 
 ![](images/image_powerlines.jpg){fig-align="left"}

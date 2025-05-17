@@ -40,7 +40,10 @@ theme_custom = theme_light() +
 
 # Courses TA'd
 
-
+  - **PS 348 Analysis of International Relations [U]** (UW-Madison, Spring 2025)
+    - Instructor: Lisa Martin
+    - Course Evaluation Mean: 4.75/5 (Office Hours), 4.63/5 (Performance)
+    - [View Full Course Report](ps348_spring2025.qmd)
   - **PS 373 Introduction to Survey Research [U]** (UW-Madison, Fall 2024)
     - Instructor: Ethan vanderWilden
     - Course Evaluation Mean: 4.65/5 (Office Hours), 4.62/5 (Performance)
@@ -95,7 +98,18 @@ and able to present multiple examples to explain the concept to make sure we hav
 "John made a very complicated subject of R manageable to myself and others who have never used R before.
 John, as well as the other TA's and Ethan were always willing to go out of their way if anyone was confused or
 lost in the class.",0,1,"PS 373",
-"The TA presented information well.",0,1,"PS 373") %>% 
+"The TA presented information well.",0,1,"PS 373",
+"Very responsive 24/7",0,1,"PS 348",
+"I felt that John taught me more in this class than the professor did. I am not sure if that's just how the course is set up, but John went through multiple examples for every type of question in class, and was able to clarify everything asked of him. Furthermore, he was very accommodating when it came to my schedule and when I needed additional instruction. His feedback on my assignments also helped my fix my mistakes before the midterm.",0,1,"PS 348",
+"John was always prepared for discussion and the examples he provided us with were useful for clarity and exam preparation. Really enjoyed coming to section and having my questions answered.",0,1,"PS 348",
+"John is a great teacher in many aspects. Not only is he patient, funny, and good at what we are learning, but he is also open to student comments/questions and quick to fix any minor errors he might have made. He always responds quickly and with such detailed explanations that I am genuinely impressed by. It shows that he cares and ensures we know what the grades reflect and how to improve later. Sadly this is my last semester in college, otherwise I would've wanted to take more classes with him as a TA.",0,1,"PS 348",
+"I really enjoyed all the section materials that John created with weekly practice problems. Those are extremely helpful in terms of preparing for exams and finishing homework. I almost never need to study extra because we have already gone over the same question/logic, they are easy to understand and digest, thanks to John's hard work. I also liked that he would go over at least one problem with us in class before letting the students explore on their own since that really cleared most of the confusions I had in lecture, which gave me a lot of confidence in answering more mathematical/analytical questions in a social science course.",0,1,"PS 348",
+"He got better as we went on- which means he was listening to us and thats the best thing a TA can do, make sure he makes sense to the people learning it.",0,1,"PS 348",
+"He was always willing to answer questions and was great at explaining the concepts in the class.",0,1,"PS 348",
+"He was always available to answer questions and very patient with questions",0,1,"PS 348",
+"John Hicks was very effective at helping students understand concepts and was extremely clear and responsive in his communication.",0,1,"PS 348",
+"I have no constructive feedback for John. He is enjoyable to learn from and engages well with the material.",0,1,"PS 348"
+) %>% 
   mutate(comment = sapply(comment, function(x) paste(strwrap(x, 50), collapse = "\n"))) |> 
   mutate(comment = paste0("\"",comment,"\""," (",course,")"))
 
