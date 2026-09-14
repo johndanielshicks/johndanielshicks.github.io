@@ -1,7 +1,7 @@
 ---
 title: "CV"
 cv: 
-  pdf: "cv_hicks_5_16_2025.pdf"
+  pdf: "cv_hicks_08182026.pdf"
 engine: knitr
 format:
   html:

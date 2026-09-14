@@ -6,3 +6,6 @@
 .DS_Store
 .quarto
 johndanielshicks.github.io
+.positai
+
+**/*.quarto_ipynb
