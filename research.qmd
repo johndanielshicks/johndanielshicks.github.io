@@ -5,27 +5,48 @@ format:
     css: styles.css
 ---
 
-## Ongoing
-
 ::: column-margin
 ![](images/image_smokestack2.JPG)
 :::
 
+## Working Papers
 
+*Illegitimate Partners.* [[Working Paper]](https://www.dropbox.com/scl/fi/x6qis6x6z9hxsqyicoege/illegitimate_partners.pdf?rlkey=ncrfx55hsstewbiwnyl9ddv70&st=umrop2wr&dl=0) [[Pre-analysis Plan]](https://osf.io/zpgc4/overview?view_only=4ae35b804ec74ecf995ed4ddbe636a52)
 
-*IGO Informality as an Ingress for Corporate Lobbying* [status: Pre-analysis]
+*Populism and Trust in Political Institutions: Evidence from Latin America*, with Leo Baccini (McGill) and Paula Rettl (Harvard). [[Working Paper]](https://static1.squarespace.com/static/6481deeed0153f18f9ecde16/t/6731f76ab1188f340e20fc1e/1731327851458/baccini_hicks_rettle_ipes2024.pdf) [[Pre-analysis Plan]](https://aspredicted.org/n2r7-4sfj.pdf)
 
-*The Distributional Impact of Tariff Regressivity on Foreign Economies.* [Status: Pre-analysis]
+*Corporate Capture Diplomacy: How States use Sovereign Wealth Funds to Exert Influence Abroad*, with Andrew Fairley (UW–Madison). [[Working Paper]](https://www.dropbox.com/scl/fi/vb72zdco6hfj3yb5tdd7f/fairley_hicks_swf.pdf?rlkey=g9if39xdlknpad0ya6bsxy1z5&st=v4ke5rwp&dl=0)
 
-*Labor Schedules and Election Turnout: Evidence from Night Shift Labor.* [Status: Analysis]
+## Under Review
 
-*Populism and Trust in Political Institutions: Evidence from Latin America* with Leo Baccini (McGill) and Paula Rettl (Harvard) [Status: Analysis]
+*Does Severe Threat Override Support for Democratic Norms? The Role of Protective Policies*, with Dietlind Stolle (McGill), Isaac Noveck (Bocconi), Liron Lavi (Bar-Ilan), and Elisabeth Gidengil (McGill).
 
-*Gaps in European Public Opinion and Party Positions: Support for Ukraine Aid as a Wedge between Parties and Voters* with Dietlind Stolle (McGill) [status: Analysis]
+## Ongoing Projects
 
-*Who Opposes Democratic Backsliding and Why: The Case of the Israeli Judicial Reforms* with Liron Lavi (Bar-Ilan University), Dietlind Stolle (McGill) and Elisabeth Gidengil (McGill) [Status: Analysis]
+*Optimal Inefficiency: The Political Economy of Why So Few Firms Trade* (Dissertation project)
 
-*War Fatigue in Europe? Explaining selective decline in support for Ukraine Aid*, with Isaac Noveck (McGill) and Dietlind Stolle (McGill). [Status: Analysis]
+*Threat of Variety: Product Differentiation, Threat Perception and Economic Competition*
 
+*Climate Policy in the World Health Assembly*, with Tana Johnson (UW–Madison)
+
+## Published
+
+Hicks, John, Bondi, Arianna, Gareau-Paquette, Thomas, and Patterson, Scott. 2024. "Reproducing *Do Policymakers Listen to Experts? Evidence from a National Survey of Local and State Policymakers* (Lee 2022)," *I4R Discussion Paper Series* 186, The Institute for Replication (I4R). [[View Online]](https://ideas.repec.org/p/zbw/i4rdps/186.html)
+
+## Policy Reports
+
+Shirley, Tom, Hicks, John, Keller, Matthew, Morales Lopez, Oscar Josue, and Yerushalmi, Matthew. "Equitable Economic Recovery: Options for the City of Stamford to Support All Communities in the Next Phase of Recovery." (2021). [[View Online]](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:5bcbda14-96cc-4176-a122-87d5bd6e2b3c)
+
+## Presentations
+
+- **International Political Economy Society** — *Corporate Capture Diplomacy: How States use SWFs to Exert Influence Abroad*. November 2026 (Scheduled)
+- **American Political Science Association Annual Meeting** — *Illegitimate Partners*. September 2026 (Scheduled)
+- **Environmental Politics and Governance Annual Conference** — *Climate Policy in the World Health Assembly*. June 2026
+- **American Political Science Association Annual Meeting** — *Populism and Trust in Political Institutions: Evidence from Latin America*. 2025. Panel: "Inequality and Distributive Politics in Latin America"
+- **Jean Monnet Centre of Excellence Research Workshop, Carleton University** — *War Fatigue in Europe? Explaining selective decline in support for Ukraine Aid*. 2024. Panel: "War as a Unifying and Disunifying Force for the EU"
+- **International Political Economy Society** — *Populism and Trust in Political Institutions: Evidence from Latin America*. 2024
+- **Nordic Political Science Association Congress** — *Reconsidering Generational Patterns of Public Support for Democratic Deconsolidation*. 2024
+- **Canadian Political Science Association Annual Conference** — *Who opposes democratic backsliding and why: The case of the Israeli judicial reforms*. 2024
+- **Toronto Political Behavior Workshop** — *Democratic Backsliding in Israel? How Israelis React to the Coalition's Attempt to Overhaul the Judicial System*. 2023
 
 ![](images/image_powerlines.jpg){fig-align="left"}
