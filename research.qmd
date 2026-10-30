@@ -29,16 +29,4 @@ format:
 
 Hicks, John, Bondi, Arianna, Gareau-Paquette, Thomas, and Patterson, Scott. 2024. "Reproducing *Do Policymakers Listen to Experts? Evidence from a National Survey of Local and State Policymakers* (Lee 2022)," *I4R Discussion Paper Series* 186, The Institute for Replication (I4R). [[View Online]](https://ideas.repec.org/p/zbw/i4rdps/186.html)
 
-## Presentations
-
-- **International Political Economy Society** — *Corporate Capture Diplomacy: How States use SWFs to Exert Influence Abroad*. November 2026 (Scheduled)
-- **American Political Science Association Annual Meeting** — *Governance with Illegitimate Partners*. September 2026 (Scheduled)
-- **Environmental Politics and Governance Annual Conference** — *Climate Policy in the World Health Assembly*. June 2026
-- **American Political Science Association Annual Meeting** — *Populism and Trust in Political Institutions: Evidence from Latin America*. 2025. Panel: "Inequality and Distributive Politics in Latin America"
-- **Jean Monnet Centre of Excellence Research Workshop, Carleton University** — *War Fatigue in Europe? Explaining selective decline in support for Ukraine Aid*. 2024. Panel: "War as a Unifying and Disunifying Force for the EU"
-- **International Political Economy Society** — *Populism and Trust in Political Institutions: Evidence from Latin America*. 2024
-- **Nordic Political Science Association Congress** — *Reconsidering Generational Patterns of Public Support for Democratic Deconsolidation*. 2024
-- **Canadian Political Science Association Annual Conference** — *Who opposes democratic backsliding and why: The case of the Israeli judicial reforms*. 2024
-- **Toronto Political Behavior Workshop** — *Democratic Backsliding in Israel? How Israelis React to the Coalition's Attempt to Overhaul the Judicial System*. 2023
-
 ![](images/image_powerlines.jpg){fig-align="left"}
