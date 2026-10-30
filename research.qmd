@@ -11,7 +11,7 @@ format:
 
 ## Working Papers
 
-*Illegitimate Partners.* [[Working Paper]](https://www.dropbox.com/scl/fi/x6qis6x6z9hxsqyicoege/illegitimate_partners.pdf?rlkey=ncrfx55hsstewbiwnyl9ddv70&st=umrop2wr&dl=0) [[Pre-analysis Plan]](https://osf.io/zpgc4/overview?view_only=4ae35b804ec74ecf995ed4ddbe636a52)
+*Governance with Illegitimate Partners.* [[Working Paper]](https://www.dropbox.com/scl/fi/x6qis6x6z9hxsqyicoege/illegitimate_partners.pdf?rlkey=ncrfx55hsstewbiwnyl9ddv70&st=umrop2wr&dl=0) [[Pre-analysis Plan]](https://osf.io/zpgc4/overview?view_only=4ae35b804ec74ecf995ed4ddbe636a52)
 
 *Populism and Trust in Political Institutions: Evidence from Latin America*, with Leo Baccini (McGill) and Paula Rettl (Harvard). [[Working Paper]](https://static1.squarespace.com/static/6481deeed0153f18f9ecde16/t/6731f76ab1188f340e20fc1e/1731327851458/baccini_hicks_rettle_ipes2024.pdf) [[Pre-analysis Plan]](https://aspredicted.org/n2r7-4sfj.pdf)
 
@@ -32,7 +32,7 @@ Hicks, John, Bondi, Arianna, Gareau-Paquette, Thomas, and Patterson, Scott. 2024
 ## Presentations
 
 - **International Political Economy Society** — *Corporate Capture Diplomacy: How States use SWFs to Exert Influence Abroad*. November 2026 (Scheduled)
-- **American Political Science Association Annual Meeting** — *Illegitimate Partners*. September 2026 (Scheduled)
+- **American Political Science Association Annual Meeting** — *Governance with Illegitimate Partners*. September 2026 (Scheduled)
 - **Environmental Politics and Governance Annual Conference** — *Climate Policy in the World Health Assembly*. June 2026
 - **American Political Science Association Annual Meeting** — *Populism and Trust in Political Institutions: Evidence from Latin America*. 2025. Panel: "Inequality and Distributive Politics in Latin America"
 - **Jean Monnet Centre of Excellence Research Workshop, Carleton University** — *War Fatigue in Europe? Explaining selective decline in support for Ukraine Aid*. 2024. Panel: "War as a Unifying and Disunifying Force for the EU"

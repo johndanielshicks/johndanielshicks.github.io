@@ -40,6 +40,9 @@ theme_custom = theme_light() +
 
 # Courses TA'd
 
+  - **PS 812 Introduction to Statistical Methods in Political Science [G]** (UW-Madison, Fall 2026)
+    - Instructor: Anton Strezhnev
+    - Course in progress
   - **PS 348 Analysis of International Relations [U]** (UW-Madison, Spring 2025)
     - Instructor: Lisa Martin
     - Course Evaluation Mean: 4.75/5 (Office Hours), 4.63/5 (Performance)
