@@ -47,5 +47,26 @@
     "title": "Excess",
     "section": "",
     "text": "evals_data_df &lt;- tibble::tribble(score,course,min,max,role,order,~ob, 2,“POLI 618”,1,5,“TA”,1,1, 3,“POLI 618”,1,5,“TA”,1,2, 5,“POLI 618”,1,5,“TA”,1,3, 5,“POLI 618”,1,5,“TA”,1,4, 5,“POLI 618”,1,5,“TA”,1,5, 5,“POLI 618”,1,5,“TA”,1,6, 5,“POLI 618”,1,5,“TA”,1,7, 5,“POLI 618”,1,5,“TA”,1,8, 5,“POLI 618”,1,5,“TA”,1,9, 4,“POLI 666”,1,5,“TA”,2,10, 5,“POLI 666”,1,5,“TA”,2,11, 5,“POLI 666”,1,5,“TA”,2,12, 5,“POLI 666”,1,5,“TA”,2,13, 5,“POLI 666”,1,5,“TA”,2,14)\ndf_list &lt;- list()\niterate &lt;- function(k){\n\nFor loop to create and accumulate dataframes\nfor (i in 1:nrow(evals_data_df)) { # Subset the dataframe up to the ith row df_subset &lt;- evals_data_df[1:i, ] |&gt; filter(course == k)\n# Add a column for the sample number df_subset &lt;- df_subset %&gt;% mutate(sample = i)\n# Assign to a new variable with dynamic names df_list[[paste0(“df”, i)]] &lt;- df_subset\n} evals_data_cumulative &lt;- data.table::rbindlist(df_list)\n}\ncourse_list &lt;- unique(evals_data_df$course) results &lt;- lapply(X = course_list,FUN = iterate) results &lt;- data.table::rbindlist(results)\np_anim &lt;- ggplot(data = results, aes(x = score,fill = course)) + geom_histogram(color=“black”)\nanim &lt;- p_anim + transition_manual(sample,cumulative = T) + ease_aes(“linear”) + enter_fade() + exit_fade() + theme_custom + labs(x=“Score”,y=“Count”,fill=““) + facet_wrap(~course)\nanim &lt;- animate(anim, fps=50,height = 350, width =500, renderer = gifski_renderer(loop = FALSE))"
+  },
+  {
+    "objectID": "fun.html",
+    "href": "fun.html",
+    "title": "Coaching",
+    "section": "",
+    "text": "Aside from research, those that know me well know that the sport of lacrosse (playing and coaching) is a massive part of my life. So, to show you a little bit of my life outside of data, here’s that life in data viz-form:\nHere’s a map of the geographic ties I’ve made through lacrosse*:\n[1] \"fun_files/figure-html/unnamed-chunk-2-1.gif\"\n*There are two key omissions in Australia and Belgium, due to space constraints."
+  },
+  {
+    "objectID": "fun.html#coaching",
+    "href": "fun.html#coaching",
+    "title": "Coaching",
+    "section": "Coaching",
+    "text": "Coaching\n\nEdgewood–Monona Grove Co-op (formerly Madison Knights) — Defensive Coordinator (March 2025–Present)\nFluid Lacrosse — U12 Coach (Field/Box) (Fall 2024–Present)\nLacrosse Quebec — Assistant Lacrosse Coach/Defensive Coordinator (June–September 2024)\n\nCoached U17 Provincial lacrosse team at the U17 Canadian national championship\nCommunicated on/off-field bilingually in English/French\n\nWesthill High School — Volunteer Varsity Lacrosse Film Analyst [Remote] (March 2023–June 2023)\n\nWhile away from the team at graduate school, broke down tape from opponents’ games, researched opposing lineups and provided scouting reports for the varsity lacrosse team\nProvided detailed reports on ideal matchups and likely impact factors in advance of games\n\nDawson College — Assistant Varsity Lacrosse Coach/Defensive Coordinator (August 2022–November 2022)\n\nInstalled playbook, developed practice plans and provided gameplans for matches\nTaught players with limited/no experience fundamentals of lacrosse, while adding layers to the experienced players’ games\nEmphasis was placed on development after two seasons off due to COVID-19 cancellations\n\nWesthill High School — Assistant Varsity Lacrosse Coach (March 2021–June 2022)\n\nInstalled playbook and created practice plans; analyzed film and provided scouting reports for players and the rest of the coaching staff\nWorked as part of the staff that led the team to its first playoff appearance, hosted playoff game, and playoff victory in over a decade\nServed as co-defensive coordinator for the varsity team and supported the JV and freshman teams\nCaptured city championship for first time since 2018"
+  },
+  {
+    "objectID": "fun.html#playing",
+    "href": "fun.html#playing",
+    "title": "Coaching",
+    "section": "Playing",
+    "text": "Playing\n\nMcGill Varsity Lacrosse — Athlete (2019–2022; 2023)\n\nDefenseman\nEarned roster spot first year as a walk-on; returned for additional season as a graduate student\n3x principal’s student-athlete honour roll recipient\nVoted by peers for McGill Lacrosse Sportsmanship Award (2023)\nServed as team representative to the McGill Varsity Council (2021–2022)\nPart of CUFLA semi-finalist 2019 McGill team; CUFLA finalist 2023 team\n\nWesthill High School — Athlete (2015–2019)\n\nDefenseman/LSM\n3x varsity starter\nElected Captain (2018–2019)\nDefensive player of the year (2018–2019)\nCAS-CIAC Student Athlete of the Year (2019)\nFCIAC Student-Athlete of the Week (April 2017)"
   }
 ]
