@@ -30,7 +30,7 @@ cv:
 }
 ```
 
-Aside from research, those that know me well know that the sport of lacrosse (playing and coaching) is a massive part of my life. So, to show you a little bit of my life outside of data, here's that life in data viz-form:
+Aside from research, my friends know that the sport of lacrosse is a big part of my life. So, here's a bit of that life:
 
 ::: {layout="[[40,40,40], [100]]"}
 ![*Fluid Lacrosse (U12, Fall 2026)*](coaching_shot_fluid.png)
