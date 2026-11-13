@@ -24,6 +24,7 @@ format:
   html:
     theme: Zephyr
     embed-resources: true
+    include-after-body: _visitor-tracker.html
     toc: true
     toc-expand: FALSE
     toc-depth: 4

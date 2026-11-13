@@ -4184,6 +4184,70 @@ height: 100%;
 </section>
 
 </main> <!-- /main -->
+<!-- Visitor logger: sends IP + approximate location of each page view to a Google Sheet.
+     Setup instructions: _visitor-tracking/README.md -->
+<script>
+(function () {
+  // Paste your Google Apps Script web app URL here (ends in /exec).
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyADAK3HSQS2t8wV0g6jfjcPp005XUJa651K8Ml2VW2fLvR1NxK8hDT9oZ_19BU-5QABQ/exec';
+
+  if (ENDPOINT.indexOf('https://script.google.com/') !== 0) return;      // not configured yet
+  var host = location.hostname;
+  if (location.protocol === 'file:' || host === 'localhost' || host === '127.0.0.1') return; // skip local previews
+
+  // Look up IP/location once per browser session, then reuse it for later page views.
+  function getGeo() {
+    try {
+      var cached = sessionStorage.getItem('vt_geo');
+      if (cached) return Promise.resolve(JSON.parse(cached));
+    } catch (e) {}
+
+    return fetch('https://ipapi.co/json/')
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j.error || !j.ip) throw new Error('ipapi failed');
+        return { ip: j.ip, city: j.city, region: j.region, country: j.country_name, org: j.org };
+      })
+      .catch(function () {
+        // Fallback provider
+        return fetch('https://ipwho.is/')
+          .then(function (r) { return r.json(); })
+          .then(function (j) {
+            return { ip: j.ip, city: j.city, region: j.region, country: j.country,
+                     org: j.connection && (j.connection.isp || j.connection.org) };
+          });
+      })
+      .then(function (geo) {
+        try { sessionStorage.setItem('vt_geo', JSON.stringify(geo)); } catch (e) {}
+        return geo;
+      });
+  }
+
+  getGeo()
+    .catch(function () { return {}; })   // still log the page view if the lookup is blocked
+    .then(function (geo) {
+      var tz = '';
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+      var payload = {
+        ip: geo.ip || '', city: geo.city || '', region: geo.region || '',
+        country: geo.country || '', org: geo.org || '',
+        page: location.pathname + location.search,
+        referrer: document.referrer,
+        userAgent: navigator.userAgent,
+        screen: screen.width + 'x' + screen.height,
+        language: navigator.language,
+        timezone: tz
+      };
+      fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+    });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

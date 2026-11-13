@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "I’ve had the privilege of working with some fantastic students. Below is my history of teaching to date:\n\nCourses TA’d\n\nPS 812 Introduction to Statistical Methods in Political Science [G] (UW-Madison, Fall 2026)\n\nInstructor: Anton Strezhnev\nCourse in progress\n\nPS 348 Analysis of International Relations [U] (UW-Madison, Spring 2025)\n\nInstructor: Lisa Martin\nCourse Evaluation Mean: 4.75/5 (Office Hours), 4.63/5 (Performance)\nView Full Course Report\n\nPS 373 Introduction to Survey Research [U] (UW-Madison, Fall 2024)\n\nInstructor: Ethan vanderWilden\nCourse Evaluation Mean: 4.65/5 (Office Hours), 4.62/5 (Performance)\nView Full Course Report\n\nPOLI 666 Causal Inference [G] (McGill University, Winter 2024)\n\nInstructor: Aaron Erlich\nCourse Evaluation Mean: 4.8/5 (SD: 0.4)\nView Full Course Report\n\nPOLI 618 Quantitative Analysis in Political Science [G] (McGill University, Fall 2023)\n\nInstructor: Aaron Erlich\nCourse Evaluation Mean: 4.4/5 (SD: 1.1)\nView Full Course Report\n\n\n\n\nStudent Feedback"
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "fun.html",
+    "href": "fun.html",
+    "title": "Coaching",
+    "section": "",
+    "text": "Aside from research, my friends know that the sport of lacrosse is a big part of my life. So, here’s a bit of that life:\n\n\n\n\n\n\nFluid Lacrosse (U12, Fall 2026)\n\n\n\n\n\n\n\nCUFLA National Championship Final, 2023\n\n\n\n\n\n\n\nU17 Canadian National Field Lacrosse Championship, 2024\n\n\n\n\n\nHere’s a map of the geographic ties I’ve made through lacrosse*:\n\n\n\n\n\n\n\n\n\n*There are two key omissions in Australia and Belgium, due to space constraints.\n\nCoaching Placements\nHere is a list of some amazing student-athletes whom I’ve had the pleasure of coaching that went on to compete at the next level:\n\nAJ Hrodey (Edgewood-Monona Grove ’26) → Ohio Northern University [NCAA DIII]\nCullen Gustavson (Madison Knights ’25/Madison West ’26) → Union College [NCAA DIII]\nRowe Schumacher (Madison Knights ’25) → Milwaukee School of Engineering [NCAA DIII]\nBen Morrison Phillips (Madison Knights ’25) → Canisius University [NCAA DI]\nCameron Lockton (Madison Knights ’25) → Illinois Wesleyan University [NCAA DIII]\nCristopher Discua (Westhill HS ’25) → Manhattanville University [NCAA DIII]\nOlivier Tellier (Team QC U17 ’24) → University of Ottawa [CUFLA]\nJared Boyd (Westhill HS ’24) → University of Bridgeport [NCAA DII]\nJeremiah Saint Valiere (Westhill HS ’23) → Dean College [NCAA DIII]\nJames Leydon (Westhill HS ’23) → Union College [NCAA DIII]\nJack Ladenheim (Dawson College ’23) → Dalhousie University [MUFLL]\nJulia Ibelings (Dawson College ’23) → University of Toronto [OUA]\nAshton Benkwitt (Westhill HS ’22) → Delaware Valley University [NCAA DIII]\nNasir Thornton (Westhill HS ’22) → Norfolk State University [NCL]\n\n*The term “placements” is used very loosely here. The athletes are the ones who put in the work.\n\n\nCoaching CV\nI’m off the (coaching) job market!\nI’m currently serving as the Defensive Coordinator for the Edgewood–Monona Grove Co-op High School lacrosse team (formerly the Madison Knights) and a U12 coach (Field/Box) for Fluid Lacrosse.\nBelow is a brief CV of my coaching/athletic history. To discuss potential coaching and training opportunities or to just talk ball, feel free to reach out to me at my personal email: johndanielshicks[at]gmail[dot]com"
   },
   {
     "objectID": "research.html#working-papers",
@@ -28,20 +35,6 @@
     "text": "Published\nHicks, John, Bondi, Arianna, Gareau-Paquette, Thomas, and Patterson, Scott. 2024. “Reproducing Do Policymakers Listen to Experts? Evidence from a National Survey of Local and State Policymakers (Lee 2022),” I4R Discussion Paper Series 186, The Institute for Replication (I4R). [View Online]"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "Welcome!\n\n\n\nI am a Ph.D. student in the Department of Political Science at the University of Wisconsin–Madison working on problems in international political economy and international organizations. My research interests include firms in trade, globalization and institutional trust, which I study using both observational and experimental tools. My dissertation project examines the role of corporate welfare policies in shaping firm-level export behavior. I am also affiliated with the Department of Statistics, where I am pursuing an M.S. in Applied Statistics. Prior to UW, I completed my master’s and B.A. in Political Science at McGill University.\nI’d love to chat about your research. Feel free to reach out to me at john[dot]hicks[at]wisc[dot]edu."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "excess.html",
     "href": "excess.html",
     "title": "Excess",
@@ -49,24 +42,17 @@
     "text": "evals_data_df &lt;- tibble::tribble(score,course,min,max,role,order,~ob, 2,“POLI 618”,1,5,“TA”,1,1, 3,“POLI 618”,1,5,“TA”,1,2, 5,“POLI 618”,1,5,“TA”,1,3, 5,“POLI 618”,1,5,“TA”,1,4, 5,“POLI 618”,1,5,“TA”,1,5, 5,“POLI 618”,1,5,“TA”,1,6, 5,“POLI 618”,1,5,“TA”,1,7, 5,“POLI 618”,1,5,“TA”,1,8, 5,“POLI 618”,1,5,“TA”,1,9, 4,“POLI 666”,1,5,“TA”,2,10, 5,“POLI 666”,1,5,“TA”,2,11, 5,“POLI 666”,1,5,“TA”,2,12, 5,“POLI 666”,1,5,“TA”,2,13, 5,“POLI 666”,1,5,“TA”,2,14)\ndf_list &lt;- list()\niterate &lt;- function(k){\n\nFor loop to create and accumulate dataframes\nfor (i in 1:nrow(evals_data_df)) { # Subset the dataframe up to the ith row df_subset &lt;- evals_data_df[1:i, ] |&gt; filter(course == k)\n# Add a column for the sample number df_subset &lt;- df_subset %&gt;% mutate(sample = i)\n# Assign to a new variable with dynamic names df_list[[paste0(“df”, i)]] &lt;- df_subset\n} evals_data_cumulative &lt;- data.table::rbindlist(df_list)\n}\ncourse_list &lt;- unique(evals_data_df$course) results &lt;- lapply(X = course_list,FUN = iterate) results &lt;- data.table::rbindlist(results)\np_anim &lt;- ggplot(data = results, aes(x = score,fill = course)) + geom_histogram(color=“black”)\nanim &lt;- p_anim + transition_manual(sample,cumulative = T) + ease_aes(“linear”) + enter_fade() + exit_fade() + theme_custom + labs(x=“Score”,y=“Count”,fill=““) + facet_wrap(~course)\nanim &lt;- animate(anim, fps=50,height = 350, width =500, renderer = gifski_renderer(loop = FALSE))"
   },
   {
-    "objectID": "fun.html",
-    "href": "fun.html",
-    "title": "Coaching",
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
     "section": "",
-    "text": "Aside from research, my friends know that the sport of lacrosse is a big part of my life. So, here’s a bit of that life:\n\n\n\n\n\n\nFluid Lacrosse (U12, Fall 2026)\n\n\n\n\n\n\n\nCUFLA National Championship Final, 2023\n\n\n\n\n\n\n\nU17 Canadian National Field Lacrosse Championship, 2024\n\n\n\n\n\nHere’s a map of the geographic ties I’ve made through lacrosse*:\n\n\n\n\n\n\n\n\n\n*There are two key omissions in Australia and Belgium, due to space constraints.\n\nCoaching Placements\nHere is a list of some amazing student-athletes whom I’ve had the pleasure of coaching that went on to compete at the next level:\n\nAJ Hrodey (Edgewood-Monona Grove ’26) → Ohio Northern University [NCAA DIII]\nCullen Gustavson (Madison Knights ’25/Madison West ’26) → Union College [NCAA DIII]\nRowe Schumacher (Madison Knights ’25) → Milwaukee School of Engineering [NCAA DIII]\nBen Morrison Phillips (Madison Knights ’25) → Canisius University [NCAA DI]\nCameron Lockton (Madison Knights ’25) → Illinois Wesleyan University [NCAA DIII]\nCristopher Discua (Westhill HS ’25) → Manhattanville University [NCAA DIII]\nOlivier Tellier (Team QC U17 ’24) → University of Ottawa [CUFLA]\nJared Boyd (Westhill HS ’24) → University of Bridgeport [NCAA DII]\nJeremiah Saint Valiere (Westhill HS ’23) → Dean College [NCAA DIII]\nJames Leydon (Westhill HS ’23) → Union College [NCAA DIII]\nJack Ladenheim (Dawson College ’23) → Dalhousie University [MUFLL]\nJulia Ibelings (Dawson College ’23) → University of Toronto [OUA]\nAshton Benkwitt (Westhill HS ’22) → Delaware Valley University [NCAA DIII]\nNasir Thornton (Westhill HS ’22) → Norfolk State University [NCL]\n\n*The term “placements” is used very loosely here. The athletes are the ones who put in the work.\n\n\nCoaching CV\nI’m off the (coaching) job market!\nI’m currently serving as the Defensive Coordinator for the Edgewood–Monona Grove Co-op High School lacrosse team (formerly the Madison Knights) and a U12 coach (Field/Box) for Fluid Lacrosse.\nBelow is a brief CV of my coaching/athletic history. To discuss potential coaching and training opportunities or to just talk ball, feel free to reach out to me at my personal email: johndanielshicks[at]gmail[dot]com"
+    "text": "I’ve had the privilege of working with some fantastic students. Below is my history of teaching to date:\n\nCourses TA’d\n\nPS 812 Introduction to Statistical Methods in Political Science [G] (UW-Madison, Fall 2026)\n\nInstructor: Anton Strezhnev\nCourse in progress\n\nPS 348 Analysis of International Relations [U] (UW-Madison, Spring 2025)\n\nInstructor: Lisa Martin\nCourse Evaluation Mean: 4.75/5 (Office Hours), 4.63/5 (Performance)\nView Full Course Report\n\nPS 373 Introduction to Survey Research [U] (UW-Madison, Fall 2024)\n\nInstructor: Ethan vanderWilden\nCourse Evaluation Mean: 4.65/5 (Office Hours), 4.62/5 (Performance)\nView Full Course Report\n\nPOLI 666 Causal Inference [G] (McGill University, Winter 2024)\n\nInstructor: Aaron Erlich\nCourse Evaluation Mean: 4.8/5 (SD: 0.4)\nView Full Course Report\n\nPOLI 618 Quantitative Analysis in Political Science [G] (McGill University, Fall 2023)\n\nInstructor: Aaron Erlich\nCourse Evaluation Mean: 4.4/5 (SD: 1.1)\nView Full Course Report\n\n\n\n\nStudent Feedback"
   },
   {
-    "objectID": "fun.html#coaching",
-    "href": "fun.html#coaching",
-    "title": "Coaching",
-    "section": "Coaching",
-    "text": "Coaching\n\nEdgewood–Monona Grove Co-op (formerly Madison Knights) — Defensive Coordinator (March 2025–Present)\nFluid Lacrosse — U12 Coach (Field/Box) (Fall 2024–Present)\nLacrosse Quebec — Assistant Lacrosse Coach/Defensive Coordinator (June–September 2024)\n\nCoached U17 Provincial lacrosse team at the U17 Canadian national championship\nCommunicated on/off-field bilingually in English/French\n\nWesthill High School — Volunteer Varsity Lacrosse Film Analyst [Remote] (March 2023–June 2023)\n\nWhile away from the team at graduate school, broke down tape from opponents’ games, researched opposing lineups and provided scouting reports for the varsity lacrosse team\nProvided detailed reports on ideal matchups and likely impact factors in advance of games\n\nDawson College — Assistant Varsity Lacrosse Coach/Defensive Coordinator (August 2022–November 2022)\n\nInstalled playbook, developed practice plans and provided gameplans for matches\nTaught players with limited/no experience fundamentals of lacrosse, while adding layers to the experienced players’ games\nEmphasis was placed on development after two seasons off due to COVID-19 cancellations\n\nWesthill High School — Assistant Varsity Lacrosse Coach (March 2021–June 2022)\n\nInstalled playbook and created practice plans; analyzed film and provided scouting reports for players and the rest of the coaching staff\nWorked as part of the staff that led the team to its first playoff appearance, hosted playoff game, and playoff victory in over a decade\nServed as co-defensive coordinator for the varsity team and supported the JV and freshman teams\nCaptured city championship for first time since 2018"
-  },
-  {
-    "objectID": "fun.html#playing",
-    "href": "fun.html#playing",
-    "title": "Coaching",
-    "section": "Playing",
-    "text": "Playing\n\nMcGill Varsity Lacrosse — Athlete (2019–2022; 2023)\n\nDefenseman\nEarned roster spot first year as a walk-on; returned for additional season as a graduate student\n3x principal’s student-athlete honour roll recipient\nVoted by peers for McGill Lacrosse Sportsmanship Award (2023)\nServed as team representative to the McGill Varsity Council (2021–2022)\nPart of CUFLA semi-finalist 2019 McGill team; CUFLA finalist 2023 team\n\nWesthill High School — Athlete (2015–2019)\n\nDefenseman/LSM\n3x varsity starter\nElected Captain (2018–2019)\nDefensive player of the year (2018–2019)\nCAS-CIAC Student Athlete of the Year (2019)\nFCIAC Student-Athlete of the Week (April 2017)"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Welcome!\n\n\n\nI am a Ph.D. student in the Department of Political Science at the University of Wisconsin–Madison working on problems in international political economy and international organizations. My research interests include firms in trade, globalization and institutional trust, which I study using both observational and experimental tools. My dissertation project examines the role of corporate welfare policies in shaping firm-level export behavior. I am also affiliated with the Department of Statistics, where I am pursuing an M.S. in Applied Statistics. Prior to UW, I completed my master’s and B.A. in Political Science at McGill University.\nI’d love to chat about your research. Feel free to reach out to me at john[dot]hicks[at]wisc[dot]edu."
   }
 ]
